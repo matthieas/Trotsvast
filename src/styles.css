@@ -1,0 +1,102 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-lime: var(--lime);
+  --color-cream: var(--cream);
+  --font-display: "Caveat", "Patrick Hand", cursive;
+  --font-hand: "Patrick Hand", cursive;
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --shadow-soft: 0 24px 60px -28px color-mix(in oklab, var(--primary) 40%, transparent);
+  --shadow-leaf: 0 30px 80px -40px oklch(0.45 0.18 145 / 0.55);
+  --gradient-forest: linear-gradient(135deg, oklch(0.96 0.06 145) 0%, oklch(0.92 0.12 130) 100%);
+  --gradient-sun: radial-gradient(60% 50% at 50% 0%, oklch(0.96 0.15 110 / 0.5), transparent 65%);
+}
+
+:root {
+  --radius: 1rem;
+
+  --background: oklch(0.99 0.01 110);            /* near-white with warm hint */
+  --foreground: oklch(0.22 0.05 150);            /* deep forest near-black */
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.05 150);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.05 150);
+
+  --primary: oklch(0.42 0.15 150);               /* deep forest green */
+  --primary-foreground: oklch(0.99 0.01 110);
+
+  --secondary: oklch(0.62 0.18 145);             /* fresh leaf green (logo) */
+  --secondary-foreground: oklch(0.15 0.05 150);
+
+  --muted: oklch(0.96 0.02 140);
+  --muted-foreground: oklch(0.42 0.05 150);
+
+  --accent: oklch(0.93 0.08 135);                /* soft mint */
+  --accent-foreground: oklch(0.28 0.08 150);
+
+  --lime: oklch(0.86 0.18 120);                  /* sunny lime highlight */
+  --cream: oklch(0.97 0.03 105);                 /* warm cream */
+
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.99 0.01 110);
+  --border: oklch(0.9 0.03 140);
+  --input: oklch(0.9 0.03 140);
+  --ring: oklch(0.62 0.18 145);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.005em;
+    font-weight: 600;
+    line-height: 1.05;
+  }
+}
+
+@utility wiggle {
+  animation: trotsvast-wiggle 4s ease-in-out infinite;
+  transform-origin: 50% 90%;
+}
+
+@keyframes trotsvast-wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50%      { transform: rotate(3deg); }
+}
