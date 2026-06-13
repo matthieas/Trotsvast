@@ -1,10 +1,12 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  // Zet deze lege array helemaal bovenaan op het hoogste niveau, 
+  // puur om het Cloudflare script niet te laten crashen:
+  plugins: [],
+  
   vite: {
     base: '/Trotsvast/', 
-    // Voeg deze lege array toe zodat Cloudflare niet crasht:
-    plugins: [], 
   },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
